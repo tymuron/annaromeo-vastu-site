@@ -13,6 +13,8 @@ site/                     the deployable site (Render publishes this folder)
   konsultatsiya-po-vastu-dizainu-dlya-diza/   |
   mk-vastudesign/         the Vastu + Design masterclass
   classpaper/             the Classpaper interview
+  course/                 the flagship "Васту-дизайн" course, synced from the
+                          vastu-course-landing repo (125 MB, mostly video)
   404.html
   assets/                 only what these pages use, about 18 MB
 render.yaml               Render blueprint: static site, publish path `site`
@@ -29,8 +31,14 @@ writes `robots.txt` and `sitemap.xml` for this domain. To regenerate:
 
 ```
 cd ../annaromeo-site
-python3 tools/build_vastu.py ../annaromeo-vastu-site --origin https://annaromeovastu.com
+python3 tools/build_vastu.py ../annaromeo-vastu-site \
+    --origin https://annaromeovastu.com --course ~/vastu-course-site
 ```
+
+The course keeps its own repo. `--course` copies it in at `/course` and
+rewrites only its metadata and the links that pointed at the expired
+annaromeo.design. Its asset paths are all relative, so nothing collides with
+this site's `/assets`. Re-run the command after the course changes.
 
 Do not hand-edit `site/`; edit the mirror or the build script, then regenerate.
 
