@@ -287,8 +287,6 @@ p:last-child{margin-bottom:0}
 .card:hover{box-shadow:inset 0 0 0 2px var(--gold)}
 .sec--dark .card:hover,.sec--deep .card:hover{box-shadow:inset 0 0 0 2px var(--burgundy)}
 .tariff:hover{box-shadow:inset 0 0 0 1px var(--gold)}
-.tariff__alt:hover{text-decoration-color:currentColor}
-.tariff__mono:hover img{transform:translateY(-2px)}
 .faq__q:hover{color:var(--gold-ink)}
 .layers__tab:hover{color:var(--on-dark)}
 .nav__links a:hover{color:var(--gold)}
@@ -537,9 +535,7 @@ p:last-child{margin-bottom:0}
   transform:translateY(105%);transition:transform .45s var(--ease);
 }
 .sticky.is-on{transform:translateY(0)}
-/* Кнопка «наверх». Живой отзыв: человек нажимает «Занять место» на первом
-   экране, чтобы посмотреть цену, и потом хочет вернуться читать — а возврата
-   нет. Появляется после первого экрана и прячется у подвала, где и так есть
+/* Кнопка «наверх». Появляется после первого экрана и прячется у подвала, где и так есть
    меню. */
 .totop{
   position:fixed;right:clamp(14px,2.4vw,30px);bottom:clamp(14px,2.4vw,30px);
@@ -859,28 +855,11 @@ html.js .rv:not(.is-in) .chain::before{transform:scaleX(0)}
 .price-inline{font-family:var(--serif);font-size:1.55em;font-weight:500;line-height:1;white-space:nowrap}
 .tariff__inst{font-size:13.5px;color:var(--on-dark-soft);margin:12px 0 0}
 .tariff__inst b{color:var(--cream);font-weight:600}
+.tariff--pro .tariff__inst{color:rgba(66,35,38,.78)}
 .tariff__seats{display:flex;align-items:center;gap:10px;margin:16px 0 0;font-size:12.5px;color:var(--gold)}
 .tariff__bar{flex:1;height:2px;background:rgba(202,188,144,.22);position:relative;overflow:hidden}
 .tariff__bar i{position:absolute;inset:0 auto 0 0;background:var(--gold);display:block}
 .tariff .btn{margin-top:24px}
-/* Второй путь к оплате — рассрочка в рублях на GetCourse. Тише кнопки тарифа,
-   но с полноценной зоной нажатия, чтобы её находили и на телефоне. */
-.tariff__alt{display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;margin-top:10px;
-  font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--gold);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;
-  text-decoration-color:rgba(202,188,144,.5);transition:text-decoration-color .3s var(--ease)}
-.tariff--pro .tariff__alt{color:var(--burgundy);text-decoration-color:rgba(66,35,38,.45)}
-/* Третий путь — «Покупка Частинами monobank» (Украина, гривны). Шильдик —
-   официальный файл monobank как есть: менять их визуал без согласования
-   нельзя. Две юр. строки рядом обязательны в любой рекламе ПЧ, кегль — не
-   меньше половины слов «Покупка Частинами» на шильдике
-   (monobank.ua/knowledge-base/chast/marketing). */
-.tariff__mono{display:flex;flex-direction:column;align-items:center;gap:9px;margin-top:16px;text-decoration:none}
-.tariff__mono img{display:block;width:min(236px,100%);height:auto;transition:transform .3s var(--ease)}
-.tariff__mono-cap{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-soft);text-align:center}
-.tariff--pro .tariff__mono-cap{color:rgba(66,35,38,.78)}
-.tariff__mono-legal{font-size:10px;line-height:1.5;color:var(--on-dark-soft);margin:10px 0 0;text-align:center}
-.tariff--pro .tariff__mono-legal{color:rgba(66,35,38,.72)}
 @media(max-width:900px){
   .tariffs{grid-template-columns:minmax(0,1fr)}
   .tariff{padding-top:44px}
@@ -1148,7 +1127,6 @@ html.js .rv:not(.is-in) .chain::before{transform:scaleX(0)}
   .foot ul a{display:block;padding:13px 0}
   .foot__legal a{display:inline-block;padding:12px 0}
 }
-.foot__mono{margin:20px 0 0;font-size:11px;line-height:1.6;max-width:980px;opacity:.82}
 .foot__legal{padding-top:26px;display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;
   font-size:12px;color:rgba(240,235,226,.55);line-height:1.6}
 
@@ -1355,23 +1333,6 @@ html.js hr.hair:not(.is-in){transform:scaleX(0)}
 .mt-l{margin-top:clamp(30px,4vw,56px)}
 .mt-m{margin-top:clamp(20px,2.6vw,34px)}
 </style>
-<style>
-/* Ukrainian copy only (tools/make_ua_page.py) */
-.tariff__card{margin:10px 0 0;font-size:13px;color:var(--on-dark-soft)}
-.tariff__card b{color:var(--cream);font-weight:600}
-.tariff--pro .tariff__card{color:rgba(66,35,38,.75)}
-.tariff--pro .tariff__card b{color:var(--burgundy)}
-/* «Покупка Частинами monobank»: monobank's own badge, unchanged (their rules
-   forbid altering it), with the two legal lines they require next to it. */
-.tariff__mono{display:flex;flex-direction:column;align-items:center;gap:9px;margin-top:18px;text-decoration:none}
-.tariff__mono img{display:block;width:min(236px,100%);height:auto;transition:transform .3s var(--ease)}
-.tariff__mono-cap{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-soft);text-align:center}
-.tariff--pro .tariff__mono-cap{color:rgba(66,35,38,.78)}
-.tariff__mono-legal{font-size:10px;line-height:1.5;color:var(--on-dark-soft);margin:10px 0 0;text-align:center}
-.tariff--pro .tariff__mono-legal{color:rgba(66,35,38,.72)}
-@media (hover:hover) and (pointer:fine){.tariff__mono:hover img{transform:translateY(-2px)}}
-.foot__mono{margin:20px 0 0;font-size:11px;line-height:1.6;max-width:980px;opacity:.82}
-</style>
 </head>
 <body>
 
@@ -1390,19 +1351,19 @@ html.js hr.hair:not(.is-in){transform:scaleX(0)}
     <li><a href="#tarify">Тарифи</a></li>
     <li><a href="#faq">Питання</a></li>
     <li class="nav__lang"><a href="https://annaromeovastu.com/course" lang="ru" hreflang="ru" title="Російська версія">RU</a></li>
-    <li class="m-cta"><a class="btn btn--gold btn--sm btn--wide js-book" href="#tarify">Зайняти місце</a></li>
+    <li class="m-cta"><a class="btn btn--gold btn--sm btn--wide" href="https://t.me/annaromeo_vastu_bot?start=waitlist_vd" target="_blank" rel="noopener">Дізнатися про новий набір</a></li>
   </ul>
-  <a class="btn btn--gold btn--sm nav__cta js-book" href="#tarify">Зайняти місце</a>
+  <a class="btn btn--gold btn--sm nav__cta" href="https://t.me/annaromeo_vastu_bot?start=waitlist_vd" target="_blank" rel="noopener">Дізнатися про новий набір</a>
 </header>
 <div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
 
 <!-- ==================== ЛИПКАЯ CTA-ПАНЕЛЬ (моб.) ==================== -->
 <div class="sticky" id="sticky">
   <div class="sticky__price">
-    <div class="sticky__p1">42 066,73 ₴</div>
-    <div class="sticky__p2">Тариф «Основний»</div>
+    <div class="sticky__p1">Набір закритий</div>
+    <div class="sticky__p2">Залиште пошту — напишемо про новий набір</div>
   </div>
-  <a class="btn btn--gold js-book" href="#tarify">Зайняти місце</a>
+  <a class="btn btn--gold" href="https://t.me/annaromeo_vastu_bot?start=waitlist_vd" target="_blank" rel="noopener">Дізнатися про новий набір</a>
 </div>
 
 <!-- ============================ БЛОК 1. ГЕРОЙ ============================ -->
@@ -1429,15 +1390,15 @@ html.js hr.hair:not(.is-in){transform:scaleX(0)}
     <p class="hero__sub">Навчіться читати простір як систему і створювати оселі, які працюють на ваше благополуччя.</p>
 
     <dl class="hero__facts">
-      <div class="hero__fact"><dt>Старт потоку</dt><dd data-c="startLong">9 листопада 2026</dd></div>
+      <div class="hero__fact"><dt>Набір на потік</dt><dd>закритий</dd></div>
       <div class="hero__fact"><dt>Тривалість</dt><dd>2,5 місяця</dd></div>
       <div class="hero__fact"><dt>Вартість</dt><dd>від 42 066,73 ₴</dd></div>
     </dl>
 
     <div class="hero__ctas">
-      <a class="btn btn--gold js-book" href="#tarify">Зайняти місце</a>
+      <a class="btn btn--gold" href="https://t.me/annaromeo_vastu_bot?start=waitlist_vd" target="_blank" rel="noopener">Дізнатися про новий набір</a>
       <a class="btn btn--ghost-d" href="#tarify">Дивитися тарифи</a>
-      <span class="hero__note">Карткою або Покупкою Частинами monobank · навчання російською мовою</span>
+      <span class="hero__note">Набір на цей потік закритий. Залиште пошту в боті — напишемо, коли відкриється наступний потік.</span>
     </div>
   </div>
 
@@ -1455,7 +1416,7 @@ html.js hr.hair:not(.is-in){transform:scaleX(0)}
         <p class="muted">Потрібно дивитися на дім як на карту. Що відбувається в житті — видно з того, що відбувається в просторі. Одна точна зміна, як-от перестановка меблів чи перефарбування стіни, здатна покращити одразу кілька сфер.</p>
         <p><b>На курсі ви навчитеся діагностувати причини життєвих проблем через інтер’єр і створювати оселі, які працюють на вас.</b></p>
         <div class="btn-row">
-          <a class="btn btn--dark js-book" href="#tarify">Зайняти місце</a>
+          <a class="btn btn--dark" href="https://t.me/annaromeo_vastu_bot?start=waitlist_vd" target="_blank" rel="noopener">Дізнатися про новий набір</a>
           <a class="btn btn--ghost-l" href="#metod">Як це працює</a>
         </div>
       </div>
@@ -2101,19 +2062,12 @@ html.js hr.hair:not(.is-in){transform:scaleX(0)}
         </ul>
         <div class="tariff__price">
           <div class="tariff__now">42 066,73 ₴</div>
-          <p class="tariff__card">або карткою: <b>832,5 € · 930 $</b></p>
+          <p class="tariff__inst">Набір на цей потік закритий</p>
         </div>
-        <a class="btn btn--ghost-d btn--wide" data-tariff="base" href="https://lk.annaromeovastu.com/buy/4d14d633-0578-4ce8-8ad6-2d85bc3e0c49?currency=EUR&amp;lang=uk" target="_blank" rel="noopener">Зайняти місце</a>
-        <a class="tariff__mono" data-tariff="base-mono" href="https://lk.annaromeovastu.com/buy/mono/design-base" target="_blank" rel="noopener">
-          <span class="tariff__mono-cap">Для клієнтів monobank · у гривнях</span>
-          <img src="/course/assets/mono/chast-6-white.png" width="800" height="264" alt="Покупка Частинами monobank: це можна купити частинами, до 6 платежів" loading="lazy" decoding="async">
-        </a>
-        <p class="tariff__mono-legal">Реальна річна процентна ставка — 0,000001%, макс. строк кредитування до 400 000 грн — 24 місяці. Перший внесок — аванс у розмірі щомісячного платежу. АТ «УНІВЕРСАЛ БАНК», Ліцензія НБУ №92 від 20.01.1994, у держреєстрі банків №226, деталі на monobank.ua</p>
-          <p class="tiny muted" style="margin-top:12px">Карткою в євро чи доларах — на захищеній сторінці lava.top, Покупка Частинами — у застосунку monobank. Відкриється в новій вкладці.</p>
+        <a class="btn btn--ghost-d btn--wide" data-tariff="base" href="https://t.me/annaromeo_vastu_bot?start=waitlist_vd" target="_blank" rel="noopener">Дізнатися про новий набір</a>
       </article>
 
       <article class="tariff tariff--pro">
-        <span class="tariff__flag">Лише 15 місць</span>
         <p class="tariff__name">Наставництво</p>
         <h3 class="tariff__tag">Перетворити навичку на професійну практику</h3>
         <p class="tariff__lede">Особистий розбір вашого проєкту з Анною.</p>
@@ -2125,15 +2079,9 @@ html.js hr.hair:not(.is-in){transform:scaleX(0)}
         </ul>
         <div class="tariff__price">
           <div class="tariff__now">98 155,70 ₴</div>
-          <p class="tariff__card">або карткою: <b>1 942,5 € · 2 170 $</b></p>
+          <p class="tariff__inst">Набір на цей потік закритий</p>
         </div>
-        <a class="btn btn--dark btn--wide" data-tariff="pro" href="https://lk.annaromeovastu.com/buy/d6a1aacb-974b-411c-8cee-3d353a44c852?currency=EUR&amp;lang=uk" target="_blank" rel="noopener">Зайняти місце</a>
-        <a class="tariff__mono" data-tariff="pro-mono" href="https://lk.annaromeovastu.com/buy/mono/design-pro" target="_blank" rel="noopener">
-          <span class="tariff__mono-cap">Для клієнтів monobank · у гривнях</span>
-          <img src="/course/assets/mono/chast-6-white.png" width="800" height="264" alt="Покупка Частинами monobank: це можна купити частинами, до 6 платежів" loading="lazy" decoding="async">
-        </a>
-        <p class="tariff__mono-legal">Реальна річна процентна ставка — 0,000001%, макс. строк кредитування до 400 000 грн — 24 місяці. Перший внесок — аванс у розмірі щомісячного платежу. АТ «УНІВЕРСАЛ БАНК», Ліцензія НБУ №92 від 20.01.1994, у держреєстрі банків №226, деталі на monobank.ua</p>
-          <p class="tiny muted" style="margin-top:12px">Карткою в євро чи доларах — на захищеній сторінці lava.top, Покупка Частинами — у застосунку monobank. Відкриється в новій вкладці.</p>
+        <a class="btn btn--dark btn--wide" data-tariff="pro" href="https://t.me/annaromeo_vastu_bot?start=waitlist_vd" target="_blank" rel="noopener">Дізнатися про новий набір</a>
       </article>
     </div>
 
@@ -2280,8 +2228,8 @@ html.js hr.hair:not(.is-in){transform:scaleX(0)}
 
       <div class="faq__i"><button class="faq__q">Скільки зберігається доступ до матеріалів?</button><div class="faq__a"><div>На тарифі «Основний» — <b>6 місяців</b>, на «Наставництві» — <b>рік</b>.</div></div></div>
 
-      <div class="faq__i"><button class="faq__q">Якою мовою проходить курс?</button><div class="faq__a"><div>Російською: уроки, прямі ефіри, чат і матеріали курсу — російською мовою. Ця сторінка українською, щоб вам було зручно ознайомитися з програмою та умовами.</div></div></div>
-      <div class="faq__i"><button class="faq__q">Як оплатити з України?</button><div class="faq__a"><div>Двома способами. Покупкою Частинами monobank — до 6 платежів у гривнях за тією самою ціною: посилання з лапкою під тарифом, оформлення в застосунку monobank. Або карткою в євро чи доларах — за основною кнопкою тарифу, на захищеній сторінці lava.top. Одразу після оплати на пошту, вказану під час оплати, прийде лист із доступом до платформи та чатів курсу.<div class="btn-row" style="margin-top:18px"><a class="btn btn--dark btn--sm js-book" href="#tarify">До тарифів</a><a class="btn btn--ghost-l btn--sm" href="https://t.me/annaromeo_vastu_bot" target="_blank" rel="noopener">Поставити запитання</a></div></div></div></div>
+      <div class="faq__i"><button class="faq__q">Якою мовою проходить курс?</button><div class="faq__a"><div>Російською: уроки, прямі ефіри, чат і матеріали курсу — російською мовою. Ця сторінка українською, щоб вам було зручно ознайомитися з програмою та умовами.</div></div></div>
+      <div class="faq__i"><button class="faq__q">Як оплатити з України?</button><div class="faq__a"><div>Набір на цей потік закритий. Способи оплати та розстрочку оголосимо разом із новим набором — залиште пошту <a href="https://t.me/annaromeo_vastu_bot?start=waitlist_vd" target="_blank" rel="noopener">в боті</a>, і ми напишемо першими.</div></div></div>
     </div>
 
     <p class="center mt-l"><a class="btn btn--ghost-l" href="https://t.me/annaromeo_vastu_bot" target="_blank" rel="noopener">Залишилося запитання? Напишіть нам</a></p>
@@ -2301,12 +2249,12 @@ html.js hr.hair:not(.is-in){transform:scaleX(0)}
 
 
     <p class="small mt-m" style="color:rgba(240,235,226,.7)">
-      Флагманський курс «Васту-дизайн» Анни Ромео · старт <span data-c="startShort">9 листопада</span> · 2,5 місяця · вартість від 42 066,73 ₴
+      Флагманський курс «Васту-дизайн» Анни Ромео · набір на потік закритий · 2,5 місяця · вартість від 42 066,73 ₴
     </p>
     <div class="btn-row btn-row--c">
-      <a class="btn btn--gold js-book" href="#tarify">Зайняти місце</a>
+      <a class="btn btn--gold" href="https://t.me/annaromeo_vastu_bot?start=waitlist_vd" target="_blank" rel="noopener">Дізнатися про новий набір</a>
     </div>
-    <p class="tiny" style="margin-top:16px;color:rgba(240,235,226,.84)">Оплата карткою на захищеній сторінці lava.top або Покупкою Частинами monobank.</p>
+    <p class="tiny" style="margin-top:16px;color:rgba(240,235,226,.84)">Залиште пошту в боті — напишемо, коли відкриється наступний потік.</p>
   </div>
 </section>
 
@@ -2340,14 +2288,12 @@ html.js hr.hair:not(.is-in){transform:scaleX(0)}
       </div>
     </div>
     <div class="foot__legal">
-      <span>Продавець за Покупкою Частинами monobank: ФОП Чистяков Роман Миколайович · РНОКПП 2882500098</span>
-      <span>Продавець за оплатою карткою: ИП Чистякова Елена Яковлевна · ИНН 614334916160 · ОГРНИП 322930100040113</span>
+      <span>ИП Чистякова Елена Яковлевна · ИНН 614334916160 · ОГРНИП 322930100040113</span>
       <span>
         <a href="https://annaromeovastu.com/#oferta" target="_blank" rel="noopener">Договір оферти</a>
       </span>
       <span>© <span id="year">2026</span> Anna Romeo</span>
     </div>
-    <p class="foot__mono" lang="uk">Покупка частинами monobank | Universal Bank. Надавач послуг: АТ «УНІВЕРСАЛ БАНК» ліцензія НБУ №92 від 20.01.1994, номер у держреєстрі банків № 226. Мінімальна сума розстрочки: 2 грн. Максимальна сума розстрочки: 400&nbsp;000 грн. Реальна річна процентна ставка: 0,000001%. Доступний строк, платежів: 3 — 25. Порядок погашення: щомісячні платежі рівними частинами. Перший платіж у момент оформлення покупки. Інформація про істотні характеристики продукту та попередження розміщені на сайті продукту <a href="https://chast.monobank.ua" target="_blank" rel="noopener">chast.monobank.ua</a></p>
   </div>
 </footer>
 
@@ -2368,14 +2314,13 @@ html.js hr.hair:not(.is-in){transform:scaleX(0)}
 <script>
 /* ============================================================
    КОНФИГУРАЦИЯ — дата старта. Цены (75 000 / 98 155,70 ₴) и ссылки
-   на оплату (/buy платформы) записаны прямо в разметке: meta description,
+   записаны прямо в разметке: meta description,
    липкая панель, первый экран, карточки тарифов, таблица, финальный экран
    ============================================================ */
 const CFG = {
-  // Старт потока подтверждён Анной 29 августа — 9 ноября. Правится здесь,
-  // подписи [data-c] пересчитаются сами; вернёте null — «дата уточняется».
-  // Ранняя цена снята 15 сентября вместе с таймером обратного отсчёта.
-  startDate:      '2026-11-09',                  // старт потока — 9 ноября
+  // Набор на текущий поток закрыт. Когда откроется новый поток,
+  // укажите дату в формате YYYY-MM-DD — подписи [data-c] пересчитаются сами.
+  startDate:      null,
 };
 
 /* ---------- Даты в человеческом виде ---------- */
@@ -2643,9 +2588,7 @@ const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 </script>
 <script>
-/* ---------- Кнопка «наверх» ----------
-   Отзыв с теста: человек жмёт «Занять место» на первом экране, чтобы увидеть
-   цену, а потом хочет вернуться и дочитать — и возвращаться нечем. */
+/* ---------- Кнопка «наверх» ---------- */
 (() => {
   const btn = document.getElementById('totop');
   if (!btn) return;
@@ -2743,18 +2686,13 @@ document.querySelectorAll('[data-crsl]').forEach(root => {
 
 </script>
 <script>
-/* ---------- Оплата ----------
-   Анна: «вместо кнопки бронирования — сразу оплата». Кнопки тарифов — настоящие
-   ссылки прямо в разметке (#tarify), поэтому оплата работает даже если скрипт
-   не загрузился. Ведут на /buy/<offer> платформы, а НЕ на страницу товара
-   lava.top: только оплата, начатая через API платформы, присылает вебхук —
-   по ней ученик сразу получает доступ и письмо (см. vastu-portal/fulfilment.js).
-   Кнопки без тарифа (шапка, первый экран, липкая
-   панель) — ссылки на #tarify; скрипт только делает прокрутку плавной и не
-   пишет якорь в адрес. */
+/* ---------- Плавная прокрутка к #tarify ----------
+   Кнопки листа ожидания ведут напрямую в Telegram-бот. Для внутренних ссылок
+   на #tarify с классом js-book скрипт делает прокрутку плавной и не пишет
+   якорь в адрес. */
 document.addEventListener('click', e => {
   const btn = e.target.closest('.js-book');
-  if (!btn) return;
+  if (!btn || btn.getAttribute('href') !== '#tarify') return;
   e.preventDefault();
   const tarify = document.getElementById('tarify');
   if (tarify) tarify.scrollIntoView({ behavior: 'smooth', block: 'start' });
